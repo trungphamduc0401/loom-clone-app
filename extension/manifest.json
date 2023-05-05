@@ -1,0 +1,12 @@
+{
+    "short_name": "React App",
+    "name": "Create React App Sample",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "main.html",
+      "default_title": "Latest Covid Report"
+    },
+    "version": "1.0.0"
+  }
+  
+  
