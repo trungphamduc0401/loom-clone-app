@@ -33,10 +33,8 @@ const audioOptions = [
 export default function App() {
   const [backgroundColor, setBackgroundColor] = React.useState("#F0C5C5");
   const [timer, setTimer] = React.useState(0);
-  const [timerInterval, setTimerInterval] = React.useState(null);
   const [allowAudio, setAllowAudio] = useState(!false);
   const [allowVideo, setAllowVideo] = useState(!false);
-  const [isRecording, setIsRecording] = useState(false);
   // eslint-disable-next-line no-mixed-operators
   const [shouldDisplayAudioOptions, setShouldDisplayAudioOptions] =
     React.useState(false);
@@ -227,18 +225,18 @@ export default function App() {
       <div className="w-screen absolute bottom-[0px] flex flex-row items-end p-[24px]">
         {allowDisplayWebcam && (
           <div className="bg-[#212121] w-[200px] h-[150px] rounded-[12px] relative">
-            <Webcam
-              audio={false}
-              style={{ borderRadius: "12px" }}
-              className="absolute "
-            />
+            <div>
+              <Webcam
+                audio={false}
+                style={{ borderRadius: "12px", width: "100%", height: "100%" }}
+              />
+            </div>
             {allowDisplayWebcam && (
-              <div>
+              <div className="absolute top-[0px] right-[0px] translate-x-[0%] ">
                 <IconButton
                   onClick={() => {
                     setAllowDisplayWebcam(false);
                   }}
-                  className="absolute top-[0px] right-[0px] left-[100%] translate-x-[-100%] "
                 >
                   <HighlightOffIcon />
                 </IconButton>

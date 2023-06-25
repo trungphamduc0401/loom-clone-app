@@ -1,0 +1,457 @@
+{
+    "info": {
+        "_postman_id": "c7d59721-d3de-40d9-848b-1fe17248258f",
+        "name": "Server-Test",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "24192238"
+    },
+    "item": [
+        {
+            "name": "Video",
+            "item": [
+                {
+                    "name": "Get Video",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/video/6474c5b126b4e56579e6419a",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video",
+                                "6474c5b126b4e56579e6419a"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetAllVideo",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/video?page=1",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Search Video",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/video/search/name?title=&page=1",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video",
+                                "search",
+                                "name"
+                            ],
+                            "query": [
+                                {
+                                    "key": "title",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "POST video",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc1VzZXIiOnRydWUsImVtYWlsIjoieWVubGluaDIzMTAudG5AZ21haWwuY29tIiwibmFtZSI6Ik5ndXllbiBBbm5hIiwiYXZhdGFyIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFjSFR0ZllRclQtX1R1LTlNVnFKQS1aT3hsNlItVXJBU3ZQNkYwNHJkd0Y9czk2LWMiLCJpYXQiOjE2ODUzNzI4NjcsImV4cCI6MTY4NTM3NjQ2N30.-m3FCauMVyK7gKRLhNi-u4aFOLVY7NdB7Nr_sCgTxFk",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"url\": \"https://youtu.be/gA3rFa6uu14\",\r\n    \"userId\": \"6474bcb45c1f636b888a2f95\",\r\n    \"title\": \"F8-43\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/video",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add Comment",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"userId\": \"6474bcb45c1f636b888a2f95\",\r\n    \"content\": \"Comment fixed\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/video/comment/6474c5b126b4e56579e6419a",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video",
+                                "comment",
+                                "6474c5b126b4e56579e6419a"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add Viewer",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"userId\": \"6474bcb45c1f636b888a2f95\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/video/viewer/6474c5b126b4e56579e6419a",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video",
+                                "viewer",
+                                "6474c5b126b4e56579e6419a"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Title",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"title\": \"NodeJS Crash Course\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/video/645c7dd73d31b4bb7a560dd7",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video",
+                                "645c7dd73d31b4bb7a560dd7"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Comment",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"commentId\": \"647604d67355cd43a71de054\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{URL}}/video/comment/6474c5b126b4e56579e6419a",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video",
+                                "comment",
+                                "6474c5b126b4e56579e6419a"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Video",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/video/647608338174fc2f9377cfbf",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "video",
+                                "647608338174fc2f9377cfbf"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "GetInfoUserByEmail",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/user/filter/yenlinh2310.tn@gmail.com",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "user",
+                                "filter",
+                                "yenlinh2310.tn@gmail.com"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "GetInfoUserById",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InllbmxpbmgyMzEwLnRuQGdtYWlsLmNvbSIsIm5hbWUiOiJOZ3V5ZW4gQW5uYSIsImF2YXRhciI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGZZUXJULV9UdS05TVZxSkEtWk94bDZSLVVyQVN2UDZGMDRyZHdGPXM5Ni1jIiwiaWF0IjoxNjg1NDU1MzM4LCJleHAiOjE2ODU0NTg5Mzh9.4ZS40JXX_HmHUVzjT8K-Va7gAvtuPkDYRfr32vHsWS8",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/user/6474bb770d9b12ccdba0cd5c",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "user",
+                                "6474bb770d9b12ccdba0cd5c"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{URL}}/user/person/login",
+                            "host": [
+                                "{{URL}}"
+                            ],
+                            "path": [
+                                "user",
+                                "person",
+                                "login"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Test-Firebase",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "video",
+                            "type": "file",
+                            "src": "/C:/Users/TRUNG DUC/OneDrive - Hanoi University of Science and Technology/Desktop/Wallpaper/skadi-the-corrupting-heart-arknights-desktop-wallpaperwaifu.com.mp4"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://localhost:3000/upload",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "upload"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "URL",
+            "value": "http://localhost:3000",
+            "type": "string"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Hide the scrollbar */
+.container {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  
+  /* Customize scrollbar track */
+  .container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  /* Customize scrollbar thumb */
+  .container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  /* Customize scrollbar corner */
+  .container::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
