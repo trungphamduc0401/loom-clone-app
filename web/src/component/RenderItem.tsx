@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { IVideo } from "../type";
-import { sGetUser } from "../redux/common/selector";
 import { useCallback, useState } from "react";
-import { toast } from "react-toastify";
-import { set } from "lodash";
+import { useDispatch, useSelector } from "react-redux";
 import { setSelectedVideo } from "../redux/common/action";
+import { sGetUser } from "../redux/common/selector";
+import { IVideo } from "../type";
+import { EReduxActionTypes } from "../redux";
+import { toast } from "react-toastify";
 
 const RenderItem = ({ video }: { video: IVideo }) => {
   const [isHover, setIsHover] = useState(false);
@@ -25,13 +25,33 @@ const RenderItem = ({ video }: { video: IVideo }) => {
   }, [video, dispatch]);
   const onBlurInput = useCallback(() => {
     setIsRenaming(false);
-  }, []);
+    dispatch({
+      type: EReduxActionTypes.UPDATE_TITLE_VIDEO_ASYNC_ACTION,
+      payload: { ...video, title: latestVideo?.title },
+    });
+  }, [latestVideo, video, dispatch]);
   const onChangeInput = useCallback((e: any) => {
     setLatestVideo((value) => ({
       ...value,
       title: e.target.value,
     }));
   }, []);
+  const onClickDeleteVideo = useCallback(() => {
+    dispatch({
+      type: EReduxActionTypes.DELETE_VIDEO_ASYNC_ACTION,
+      payload: video,
+    });
+    toast.success('Deleted video', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+  }, [dispatch, video]);
   return (
     <div
       onMouseOver={onMouseOver}
@@ -84,7 +104,7 @@ const RenderItem = ({ video }: { video: IVideo }) => {
               <img
                 className="w-8 h-8 rounded-full"
                 src={user?.avatar}
-                alt="Neil image"
+                alt=":))"
               />
             </div>
             <div className="flex-1 min-w-0 pl-[12px]">
@@ -123,7 +143,9 @@ const RenderItem = ({ video }: { video: IVideo }) => {
                 <path d="M10 13c4.97 0 9-2.686 9-6s-4.03-6-9-6-9 2.686-9 6 4.03 6 9 6Z" />
               </g>
             </svg>
-            <div className="ml-[6px] dark:text-gray-400">{video?.viewers}</div>
+            <div className="ml-[6px] dark:text-gray-400">
+              {video?.viewers?.length}
+            </div>
           </div>
 
           <div className="flex flex-row items-center ml-[12px]">
@@ -209,6 +231,7 @@ const RenderItem = ({ video }: { video: IVideo }) => {
                   </li>
                   <li>
                     <a
+                      onClick={onClickDeleteVideo}
                       href="#"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >

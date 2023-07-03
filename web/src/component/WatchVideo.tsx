@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import SearchInput from "./SearchInput";
 import { IComment, IVideo } from "../type";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,13 +7,25 @@ import RenderItem from "./RenderItem";
 import RenderComment from "./RenderComment";
 import { set } from "lodash";
 import { setSelectedVideo } from "../redux/common/action";
+import { EReduxActionTypes } from "../redux";
 const WatchVideo = () => {
   const selectedVideo = useSelector(sGetSelectedVideo);
   const user = useSelector(sGetUser);
   const dispatch = useDispatch();
+  const [commentInput, setCommentInput] = useState("");
   const onClickCloseWatchVideo = useCallback(() => {
     dispatch(setSelectedVideo({}));
-  }, []);
+  }, [dispatch]);
+  const onPostComment = useCallback(() => {
+    dispatch({
+      type: EReduxActionTypes.CREATE_COMMENT_ASYNC_ACTION,
+      payload: {
+        comment: { content: commentInput, author: user?._id },
+        videoId: selectedVideo?._id,
+      },
+    });
+    setCommentInput("");
+  }, [dispatch, commentInput, selectedVideo, user]);
   return (
     <div className="w-screen h-screen bg-[#131327] flex flex-col dark flex flex-col">
       <div className="h-[160px] w-full bg-[#383d51]">
@@ -56,14 +68,14 @@ const WatchVideo = () => {
       <div className="w-full flex-1">
         <div className="w-[90%] mx-auto h-full flex flex-row items-center">
           <video
-            className="h-[80%] w-auto border border-gray-200 rounded-lg dark:border-gray-700"
+            className="w-[70%] w-auto max-w-[1400px] border border-gray-200 rounded-lg dark:border-gray-700"
             controls
           >
             <source src={selectedVideo?.url} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="flex-1 h-full bg-[#131327] h-[80%] rounded-tr-[12px] rounded-br-[12px] flex flex-col pl-[24px]">
-            <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+          <div className="flex-1 bg-[#131327] rounded-tr-[12px] rounded-br-[12px] flex flex-col pl-[24px] overflow-y-auto h-[600px]">
+            <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 ">
               <div className="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
                 <label className="sr-only">Your comment</label>
                 <textarea
@@ -72,11 +84,13 @@ const WatchVideo = () => {
                   className="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
                   placeholder="Write a comment..."
                   required
+                  onChange={(e) => setCommentInput(e.target.value)}
+                  value={commentInput}
                 ></textarea>
               </div>
               <div className="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600">
                 <button
-                  type="submit"
+                  onClick={onPostComment}
                   className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
                 >
                   Post comment
@@ -142,50 +156,11 @@ const WatchVideo = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 bg-[#131327] overflow-y-auto">
+            <div className="flex-1 bg-[#131327]">
               <ol className="relative border-l border-gray-200 dark:border-gray-700 ml-[12px]">
-                <RenderComment
-                  comment={{
-                    content: "This component can be used to show the timline",
-                    commentAt: new Date(),
-                  }}
-                />
-                <RenderComment
-                  comment={{
-                    content: "This component can be used to show the timline",
-                    commentAt: new Date(),
-                  }}
-                />
-                <RenderComment
-                  comment={{
-                    content: "This component can be used to show the timline",
-                    commentAt: new Date(),
-                  }}
-                />
-                <RenderComment
-                  comment={{
-                    content: "This component can be used to show the timline",
-                    commentAt: new Date(),
-                  }}
-                />
-                <RenderComment
-                  comment={{
-                    content: "This component can be used to show the timline",
-                    commentAt: new Date(),
-                  }}
-                />
-                <RenderComment
-                  comment={{
-                    content: "This component can be used to show the timline",
-                    commentAt: new Date(),
-                  }}
-                />
-                <RenderComment
-                  comment={{
-                    content: "This component can be used to show the timline",
-                    commentAt: new Date(),
-                  }}
-                />
+                {selectedVideo?.comments?.map((item) => (
+                  <RenderComment comment={item} />
+                ))}
               </ol>
             </div>
           </div>

@@ -1,27 +1,14 @@
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { Button, Modal } from "flowbite-react";
-import { useCallback, useEffect, useState } from "react";
-import { AiFillFacebook, AiFillLinkedin } from "react-icons/ai";
-import { BsFacebook } from "react-icons/bs";
+import { useCallback } from "react";
+import { AiFillFacebook } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import "../util/firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { sGetUser } from "../redux/common/selector";
+import { useDispatch } from "react-redux";
 import { EReduxActionTypes } from "../redux";
 import { logError } from "../util";
-import { toast } from "react-toastify";
+import "../util/firebase";
 
 export default function Login() {
-  const [openModal, setOpenModal] = useState<string | undefined>();
-  const props = { openModal, setOpenModal };
-  const user = useSelector(sGetUser);
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (user) {
-      dispatch({ type: EReduxActionTypes.SET_VIDEOS_ASYNC_ACTION });
-    }
-  }, [dispatch, user]);
-
   const onLoginGoogle = useCallback(async () => {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();

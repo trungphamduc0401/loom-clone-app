@@ -1,0 +1,12 @@
+{
+    "short_name": "React App",
+    "name": "Screen recorder",
+    "manifest_version": 3,
+    "action": {
+      "default_popup": "main.html",
+      "default_title": "Screen recorder"
+    },
+    "version": "1.0.0"
+  }
+  
+  

@@ -1,6 +1,7 @@
 import { EReduxActionTypes } from "../redux";
 
 export interface IUser {
+  _id?: string;
   email?: string;
   name?: string;
   avatar?: string;
@@ -9,14 +10,15 @@ export interface IUser {
 export interface IComment {
   id?: string;
   content?: string;
-  commentAt?: Date;
+  commentAt?: string;
   author?: string;
 }
 export interface IVideo {
+  _id?: string;
   url?: string;
-  viewers?: number;
+  viewers?: any[];
   createdAt?: Date;
-  comments?: string[];
+  comments?: IComment[];
   userId?: string;
   title?: string;
 }
@@ -29,5 +31,8 @@ export interface IRequestCreateUserResponse {
   user: IUser;
 }
 export interface IRequestGetVideosResponse {
-  videos: IVideo[];
+  video: IVideo[];
+}
+export interface IRequestCreateVideoResponse {
+  video: IVideo;
 }

@@ -42,3 +42,4 @@ export const setSelectedVideo = (video: IVideo) => {
     payload: video,
   };
 };
+
